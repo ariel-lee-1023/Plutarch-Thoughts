@@ -12,18 +12,19 @@ Archive of **Plutarch** (Πλούταρχος) works → clean Markdown.
 
 ## How to use (drop-folder workflow)
 
-1. Obtain the PDFs (or already-prepared Markdown) of Plutarch’s works (Lives, Moralia, etc.).
-2. Upload them into the drop folder:
+1. Obtain the PDFs (or already-prepared Markdown) of Plutarch’s works.
+2. Upload them into the matching drop folder:
 
 ```
 incoming/
-└── Works/
+├── Parallel-Lives/     # Parallel Lives
+└── Moralia/            # Moralia
 ```
 
 3. Push (or just upload via the GitHub web UI).  
    The Action will automatically:
-   - **PDF** → convert with **PyMuPDF** + layout cleanup & paragraph reflow + mobile length balancing → write `.md` into `content/PT/Works/` and delete the source PDF
-   - **Markdown (.md)** → move as-is into `content/PT/Works/` and delete from incoming
+   - **PDF** → convert with **PyMuPDF** + layout cleanup & paragraph reflow + mobile length balancing → write `.md` into `content/PT/<same>/` and delete the source PDF
+   - **Markdown (.md)** → move as-is into `content/PT/<same>/` and delete from incoming
    - commit & push the result
 
 You can also trigger it manually: **Actions → Process incoming files → Run workflow**.
@@ -42,8 +43,10 @@ No author wording is ever changed — only layout and blank-line hierarchy.
 ```
 content/
 └── PT/
-    └── Works/
-        └── <original-name>.md
+    ├── Parallel-Lives/
+    │   └── <name>.md
+    └── Moralia/
+        └── <name>.md
 ```
 
 ## Notes

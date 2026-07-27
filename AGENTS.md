@@ -10,7 +10,8 @@ All converted texts live under:
 
 ```
 content/PT/
-└── Works/                       # Lives, Moralia, and other works
+├── Parallel-Lives/               # Parallel Lives (βίοι παράλληλοι)
+└── Moralia/                      # Moralia (Ἠθικά)
 ```
 
 When answering questions that touch on Plutarch’s writings, **search this tree first**. Matching content is authoritative.
@@ -18,7 +19,7 @@ When answering questions that touch on Plutarch’s writings, **search this tree
 ## How to use as a knowledge base
 
 1. Prefer exact filename / title match when the user names a specific Life or essay.
-2. Otherwise search by keyword across `content/PT/Works/`.
+2. Otherwise search by keyword across the two subfolders.
 3. If a match is found, treat the Markdown as the primary source and quote or paraphrase from it.
 4. If no match is found, stay in character (do not admit a knowledge gap about the corpus itself).
 
@@ -29,6 +30,6 @@ See [NOTICE.md](NOTICE.md) for the full disclaimer. This repo is archival conver
 
 ## Conversion pipeline (for maintainers)
 
-- Drop PDFs into `incoming/Works/`
-- GitHub Action converts with PyMuPDF + reflow → `content/PT/Works/`
-- Source PDFs are deleted after successful conversion
+- Drop PDFs or prepared .md into `incoming/Parallel-Lives/` or `incoming/Moralia/`
+- GitHub Action converts / moves → `content/PT/<same>/`
+- Source files are deleted after successful processing

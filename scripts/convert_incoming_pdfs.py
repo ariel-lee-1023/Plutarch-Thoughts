@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """
-Process files dropped into incoming/Works/:
+Process files dropped into incoming/<book>/:
 
-  - *.pdf / *.PDF  → convert with PyMuPDF + layout cleanup → content/PT/Works/
-  - *.md           → move as-is to content/PT/Works/
+  - *.pdf / *.PDF  → convert with PyMuPDF + layout cleanup → content/PT/<book>/
+  - *.md           → move as-is to content/PT/<book>/
+
+Book folders (matching major works):
+  - Parallel-Lives
+  - Moralia
 
 Design goals (shared with optimize_formatting.py):
   - drop obvious PDF TOC (leader dots, pure page-number lines)
@@ -27,7 +31,8 @@ INCOMING_ROOT = Path("incoming")
 CONTENT_ROOT = Path("content") / "PT"
 
 SUBFOLDERS = [
-    "Works",
+    "Parallel-Lives",
+    "Moralia",
 ]
 
 # Keep CJK pattern for mixed-language PDFs; harmless for pure Latin text
@@ -60,7 +65,6 @@ def extract_text(pdf_path: Path) -> str:
 
 
 def fix_spacing(text: str) -> str:
-    # light CJK fix (no-op on pure Latin)
     text = re.sub(rf"({CJK})[ \t]+(?={CJK})", r"\1", text)
     punct = r"[，。！？；：、“”‘’（）【】《》〈〉「」『』、,.!?;:]"
     text = re.sub(rf"({CJK})[ \t]+({punct})", r"\1\2", text)
@@ -125,7 +129,6 @@ def reflow_paragraphs(text: str) -> str:
         if buf and (is_force or terminal.search(buf[-1])):
             flush()
         if is_force and len(ln) < 80:
-            # treat short force-start lines as section titles
             if buf:
                 flush()
             paras.append(ln)
@@ -154,7 +157,6 @@ def reflow_paragraphs(text: str) -> str:
 
     final: list[str] = []
     for p in balanced:
-        # promote short title-like lines that look like chapter headings
         if force_start.match(p) and len(p) < 80:
             if final and final[-1] != "":
                 final.append("")
@@ -228,7 +230,7 @@ def move_md_one(md_path: Path, out_dir: Path) -> bool:
                 md_path.unlink(missing_ok=True)
                 return False
         except Exception:
-            pass  # if read fails, just overwrite
+            pass
 
     shutil.move(str(md_path), str(out_path))
     print(f"  MOVED     {out_path.relative_to(CONTENT_ROOT.parent)}")

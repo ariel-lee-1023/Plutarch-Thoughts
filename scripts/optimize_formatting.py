@@ -20,7 +20,8 @@ from pathlib import Path
 CONTENT_ROOT = Path("content") / "PT"
 
 SUBFOLDERS = [
-    "Works",
+    "Parallel-Lives",
+    "Moralia",
 ]
 
 CJK = r"[\u2e80-\u2eff\u2f00-\u2fdf\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff00-\uffef]"

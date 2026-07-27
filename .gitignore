@@ -1,0 +1,9 @@
+# temp / local
+*.pdf
+__pycache__/
+.venv/
+*.pyc
+.DS_Store
+
+# keep content/
+!content/

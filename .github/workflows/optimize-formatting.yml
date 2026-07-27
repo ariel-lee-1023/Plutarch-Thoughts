@@ -1,0 +1,43 @@
+name: Optimize content formatting
+
+on:
+  # manual trigger
+  workflow_dispatch:
+  # also run weekly so existing content stays balanced for mobile
+  schedule:
+    - cron: "0 3 * * 1"  # Mondays 03:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Optimize existing Markdown
+        run: python scripts/optimize_formatting.py
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add content/ || true
+
+          if git diff --staged --quiet; then
+            echo "No formatting changes"
+          else
+            git commit -m "chore: optimize content formatting for mobile reading $(date -u +%Y-%m-%d)"
+            git pull --rebase origin main
+            git push
+          fi

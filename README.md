@@ -10,6 +10,12 @@ Archive of **Plutarch** (Πλούταρχος) works → clean Markdown.
 > This repository claims no ownership of any underlying copyrighted material.  
 > See [NOTICE.md](NOTICE.md) for the full disclaimer.
 
+## Recommended pairing
+
+This repository is the knowledge base.  
+For the analytical perspective / skill, use https://github.com/ariel-lee-1023/Plutarch-perspective.git.  
+One supplies the primary sources; the other supplies the interpretive frame.
+
 ## How to use (drop-folder workflow)
 
 1. Obtain the PDFs (or already-prepared Markdown) of Plutarch’s works.

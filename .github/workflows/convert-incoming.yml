@@ -1,11 +1,12 @@
-name: Convert incoming PDFs
+name: Process incoming files
 
 on:
-  # automatic when you push PDFs into the drop folders
+  # automatic when you push PDFs or Markdown into the drop folders
   push:
     paths:
       - "incoming/**/*.pdf"
       - "incoming/**/*.PDF"
+      - "incoming/**/*.md"
   # also allow manual run
   workflow_dispatch:
 
@@ -31,7 +32,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pymupdf
 
-      - name: Convert PDFs → Markdown
+      - name: Process incoming files (PDF → MD or move MD)
         run: python scripts/convert_incoming_pdfs.py
 
       - name: Commit & push if changed
@@ -39,13 +40,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # stage both the new markdown and the deleted source PDFs
+          # stage both the new/moved markdown and the deleted source files
           git add content/ incoming/ || true
 
           if git diff --staged --quiet; then
             echo "No content changes"
           else
-            git commit -m "chore: convert incoming PDFs to Markdown $(date -u +%Y-%m-%d)"
+            git commit -m "chore: process incoming files to content/PT/ $(date -u +%Y-%m-%d)"
             git pull --rebase origin main
             git push
           fi

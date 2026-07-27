@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
-Convert PDFs dropped into incoming/Works/ into clean Markdown under content/PT/Works/
+Process files dropped into incoming/Works/:
+
+  - *.pdf / *.PDF  → convert with PyMuPDF + layout cleanup → content/PT/Works/
+  - *.md           → move as-is to content/PT/Works/
 
 Design goals (shared with optimize_formatting.py):
   - drop obvious PDF TOC (leader dots, pure page-number lines)
@@ -13,6 +16,7 @@ from __future__ import annotations
 
 import hashlib
 import re
+import shutil
 import sys
 import unicodedata
 from pathlib import Path
@@ -210,25 +214,61 @@ def convert_one(pdf_path: Path, out_dir: Path) -> bool:
     return True
 
 
+def move_md_one(md_path: Path, out_dir: Path) -> bool:
+    """Move an already-prepared .md from incoming/ to content/PT/..."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / md_path.name
+
+    if out_path.exists():
+        try:
+            existing = out_path.read_text(encoding="utf-8")
+            incoming = md_path.read_text(encoding="utf-8")
+            if content_hash(existing) == content_hash(incoming):
+                print(f"  SKIP (unchanged) {out_path.relative_to(CONTENT_ROOT.parent)}")
+                md_path.unlink(missing_ok=True)
+                return False
+        except Exception:
+            pass  # if read fails, just overwrite
+
+    shutil.move(str(md_path), str(out_path))
+    print(f"  MOVED     {out_path.relative_to(CONTENT_ROOT.parent)}")
+    return True
+
+
 def main() -> int:
     changed = 0
-    total_pdfs = 0
+    total_files = 0
+
     for sub in SUBFOLDERS:
         src_dir = INCOMING_ROOT / sub
         if not src_dir.is_dir():
             print(f"(no folder) {src_dir}")
             continue
-        pdfs = sorted(src_dir.glob("*.pdf")) + sorted(src_dir.glob("*.PDF"))
-        if not pdfs:
-            print(f"(empty)    {src_dir}")
-            continue
-        print(f"\n=== {sub} ({len(pdfs)} PDF(s)) ===")
+
         out_dir = CONTENT_ROOT / sub
-        for pdf in pdfs:
-            total_pdfs += 1
-            if convert_one(pdf, out_dir):
-                changed += 1
-    print(f"\nDone. scanned={total_pdfs}  written/updated={changed}")
+
+        # 1. PDFs → convert
+        pdfs = sorted(src_dir.glob("*.pdf")) + sorted(src_dir.glob("*.PDF"))
+        if pdfs:
+            print(f"\n=== {sub} PDFs ({len(pdfs)}) ===")
+            for pdf in pdfs:
+                total_files += 1
+                if convert_one(pdf, out_dir):
+                    changed += 1
+
+        # 2. Markdown → move as-is
+        mds = sorted(src_dir.glob("*.md"))
+        if mds:
+            print(f"\n=== {sub} Markdown ({len(mds)}) ===")
+            for md in mds:
+                total_files += 1
+                if move_md_one(md, out_dir):
+                    changed += 1
+
+        if not pdfs and not mds:
+            print(f"(empty)    {src_dir}")
+
+    print(f"\nDone. scanned={total_files}  written/moved={changed}")
     return 0
 
 

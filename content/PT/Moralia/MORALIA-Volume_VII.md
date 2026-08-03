@@ -800,9 +800,7 @@ And with as little reason are the Barbarians about the river Po to be extolled, 
 
 And still more ridiculous than all this it would certainly be, when all those people that lived at the time took no notice of Phaethon’s mischance, that they, who happened to be born five or ten generations after, should be so idle as to take up the custom of going into black and bewailing his downfall.
 
-However, in all these things there is nothing to be observed but mere folly; nothing pernicious, nor any thing dangerous. But as for the anger of the Gods, what reason can be given why their wrath should stop and conceal itself upon a sudden, like some certain rivers, and when all things seem to be forgot, should break forth upon others with so much fury, as not to be atoned but with some remarkable calamities?
-
-13.
+However, in all these things there is nothing to be observed but mere folly; nothing pernicious, nor any thing dangerous. But as for the anger of the Gods, what reason can be given why their wrath should stop and conceal itself upon a sudden, like some certain rivers, and when all things seem to be forgot, should break forth upon others with so much fury, as not to be atoned but with some remarkable calamities? 13.
 
 Upon that, so soon as he had done speaking, not a little afraid lest, if he should begin again, he would run himself into many more and greater absurdities, I asked: Do you believe, sir, all that you have said to be true? Then he: Though all that I have alleged may not be true, yet if only some part may be allowed for truth, do not you think there is the same difficulty still remaining in the question? It may be so, said I.
 

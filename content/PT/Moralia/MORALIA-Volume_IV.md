@@ -884,9 +884,7 @@ For this reason they are called “solitary eaters.”
 
 He deemed it of little worth and gave it to one of his Companions b to carry. But when Gyges c revolted and was at war with Candaules, Arselis came from Mylasa with an army as an ally for Gyges and slew both Candaules and his Companion and brought the axe to Caria together with the other spoils.
 
-He therefore constructed a statue of Zeus and placed the axe in its hand, and called the god Labrandeus; for the Lydians call the axe labrys. a
-
-46.
+He therefore constructed a statue of Zeus and placed the axe in its hand, and called the god Labrandeus; for the Lydians call the axe labrys. a 46.
 
 Why is it that the people of Tralles call vetch “purifier” and make particular use of it for expiations and purifications? Is it because the Leleges and Minyae in days of old drove them out and took possession of their city and their land, and because later the Trallians returned and prevailed, and as many of the Leleges as had not been slain nor had fled away, but had been left behind there because of their destitution and weakness — of these they took no account either of their life or of their death, and they established a law that any Trallian who killed a Minyan or a Lelegian should be free from pollution when he had measured out a bushel of vetch to the relatives of the murdered man?
 

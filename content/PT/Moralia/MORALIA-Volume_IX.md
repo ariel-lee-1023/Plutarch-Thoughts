@@ -494,9 +494,7 @@ Who is he that will hinder her from masquerading before his doors, from singing 
 
 Let her knit her brows, refrain all manner of pomp of luxury; let her put on a garb and countenance suitable to such a violent passion. But if bashful and modest, let her sit at home, expecting her suitors and gallants to come and court her there.
 
-But who would not fly and abominate a woman that professes love, and loathe the idea of taking one to wife who makes such an impudent incontinence the first step to future nuptials?
-
-9.
+But who would not fly and abominate a woman that professes love, and loathe the idea of taking one to wife who makes such an impudent incontinence the first step to future nuptials? 9.
 
 When Protogenes had thus concluded; Do you not see, Anthemion, saith my father, how they again make common cause against us, enforcing us still to continue our discourse of nuptial love, who deny not ourselves to be the upholders of it, nor ever avoided the being one of that celebrated chorus? Most certainly I do, replied Anthemion; therefore proceed in the defence of conjugal affection; and let us have also your assistance in maintaining the argument about riches, with which Pisias chiefly seems to scare us.
 

@@ -1026,9 +1026,7 @@ For they tell us of one Philoxenus the son of Eryxis, and Gnatho the Sicilian, w
 
 They bespatter the repute of others, as their rivals in honor, that they themselves may advance smoothly to it and without a rub. They do like watermen, who look astern while they row the boat ahead, still so managing the strokes of the oar that the vessel may make on to its port. So these men who recommend to us such kind of precepts row hard after glory, but with their face another way.
 
-To what purpose else need this have been said? — why committed to writing and handed down to posterity? Would he live incognito to his contemporaries, who is so eager to be known to succeeding ages?
-
-2.
+To what purpose else need this have been said? — why committed to writing and handed down to posterity? Would he live incognito to his contemporaries, who is so eager to be known to succeeding ages? 2.
 
 But besides, doth not the thing itself sound ill, to bid you keep all your lifetime out of the world’s eye, as if you had rifled the sepulchres of the dead, or done such like detestable villany which you should hide for? What! is it grown a crime to live, unless you can keep all others from knowing you do so? For my part, I should pronounce that even an ill-liver ought not to withdraw himself from the converse of others.
 
